@@ -1,14 +1,30 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController , App } from 'ionic-angular';
+import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
+import { TruncateTitlesDirective } from "../../directives/truncate-titles/truncate-titles";
+import { CreatePostPage } from "../create-post/create-post";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  constructor(public navCtrl: NavController) {
-
+  posts;
+  constructor(public navCtrl: NavController, public app:App , private auth:AuthServiceProvider) {
+    this.auth.getPost('posts').then((result) => {
+      this.posts = result;
+      console.log(this.posts)
+    })
   }
 
+  logOut(){
+    const root = this.app.getRootNav();
+    root.popToRoot();
+    this.auth.loggedIn = false;
+  }
+
+  createPost():void{
+    this.navCtrl.push(CreatePostPage);
+  }
+  
 }

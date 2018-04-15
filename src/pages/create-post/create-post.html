@@ -1,0 +1,16 @@
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>Title</ion-label>
+            <ion-input type="text" [(ngModel)]="newPost.title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Description</ion-label>
+            <ion-input type="text" [(ngModel)]="newPost.body"></ion-input>
+        </ion-item>
+
+
+        <button ion-button block color="primary" (click)="addPost()">Create Post</button>
+    </ion-list>
+
+</ion-content>
