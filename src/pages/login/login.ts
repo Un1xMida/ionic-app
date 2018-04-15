@@ -20,10 +20,12 @@ export class LoginPage {
   username;
   password;
   constructor(public navCtrl: NavController, public navParams: NavParams , private auth: AuthServiceProvider) {
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    
   }
 
   
@@ -31,6 +33,8 @@ export class LoginPage {
     this.auth.getData('users',this.username,this.password).then((result) => {
       if(this.auth.loggedIn === true){
         this.navCtrl.push(HomePage);
+        localStorage.setItem('state', JSON.stringify({"logged":true}));
+        // console.log('retrievedObject: ', this.retrive.logged);
       }
       else {
         this.navCtrl.push(ErrorPage);

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { SignupPage } from "../signup/signup";
 import { LoginPage } from "../login/login";
+import { HomePage } from "../home/home";
 
 
 /**
@@ -18,18 +19,24 @@ import { LoginPage } from "../login/login";
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
-
+  retrive=this.retrive = JSON.parse(localStorage.getItem('state'));
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
+    
   }
 
   signUp(){
     this.navCtrl.push(SignupPage)
   }
   logIn(){
-    this.navCtrl.push(LoginPage)
+    if (this.retrive.logged === true) {
+      this.navCtrl.push(HomePage)
+    }
+    else if (this.retrive.logged === false){
+      this.navCtrl.push(LoginPage)
+    }
   }
 }
