@@ -1,21 +1,24 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar text-center>
         <ion-title>
             Welcome to Banana Project
         </ion-title>
-        <button ion-button color="light" (click)="logOut()">Logout</button>
-        <button ion-button color="secondry" (click)="createPost()">Create Post</button>
+        <ion-icon name="close" (click)="logOut()" color="lightprimary"></ion-icon>
+
     </ion-navbar>
 </ion-header>
 
 
-<ion-content class="card-background-page">
-    <ion-card *ngFor="let post of posts">
-        <ion-card-header truncateTitles (click)="goToDetails(post.id)">
-            {{post.title}}
-        </ion-card-header>
-        <ion-card-content>
-            {{post.body}}
-        </ion-card-content>
-    </ion-card>
+<ion-content class="card-background-page" text-center>
+    <button class="createPost-btn" ion-button color="secondry" (click)="createPost()">Create Post</button>
+    <section class="items-cont">
+        <ion-card *ngFor="let post of posts">
+            <ion-card-header truncateTitles (click)="goToDetails(post.id)">
+                {{post.title}}
+            </ion-card-header>
+            <ion-card-content>
+                {{post.body}}
+            </ion-card-content>
+        </ion-card>
+    </section>
 </ion-content>

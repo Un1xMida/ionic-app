@@ -1,5 +1,6 @@
 page-home {
     .card-background-page {
+        position: relative;
         ion-card {
             position: relative;
             text-align: center;
@@ -19,5 +20,14 @@ page-home {
             width: 100%;
             color: #fff;
         }
+    }
+    .createPost-btn {
+        position: fixed!important;
+        top: 10%;
+        left: 35%;
+        z-index: 99;
+    }
+    .items-cont {
+        padding-top: 50px;
     }
 }
