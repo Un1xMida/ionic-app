@@ -25,7 +25,7 @@ export class WelcomePage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WelcomePage');
-    
+    console.log(this.retrive.logged)
   }
 
   signUp(){

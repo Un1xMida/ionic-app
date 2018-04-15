@@ -14,6 +14,7 @@ import { ErrorPage } from '../pages/error/error';
 import { CreatePostPage } from '../pages/create-post/create-post';
 import { TruncateTitlesDirective } from '../directives/truncate-titles/truncate-titles'; // directive
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { DetailsPage } from '../pages/details/details';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     SignupPage,
     ErrorPage,
     CreatePostPage,
-    TruncateTitlesDirective
+    TruncateTitlesDirective,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     LoginPage,
     SignupPage,
     ErrorPage,
-    CreatePostPage
+    CreatePostPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

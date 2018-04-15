@@ -68,5 +68,17 @@ export class AuthServiceProvider {
         reject(err)
       }
     })
+
+  }
+  getPostData(type,id){
+    return new Promise ((resolve,reject) => {
+      this.http.get(apiUrl+type+'/'+id).subscribe(res => {
+        resolve(res)
+      }),
+      (err) => {
+        reject(err)
+      }
+    })
   }
 }
+
