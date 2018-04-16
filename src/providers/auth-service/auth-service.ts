@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+
 let apiUrl = 'http://localhost:3000/'
 /*
   Generated class for the AuthServiceProvider provider.

@@ -5,6 +5,10 @@ import { SignupPage } from "../signup/signup";
 import { LoginPage } from "../login/login";
 import { HomePage } from "../home/home";
 
+import { TranslateService } from '@ngx-translate/core';
+
+
+
 
 /**
  * Generated class for the WelcomePage page.
@@ -20,7 +24,8 @@ import { HomePage } from "../home/home";
 })
 export class WelcomePage {
   retrive=this.retrive = JSON.parse(localStorage.getItem('state'));
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public translate: TranslateService) {
+    translate.use('en')
   }
 
   ionViewDidLoad() {
@@ -39,4 +44,5 @@ export class WelcomePage {
       this.navCtrl.push(LoginPage)
     }
   }
+
 }
