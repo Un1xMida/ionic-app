@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { AppGLobalService } from '../../services/globals';
 
 let apiUrl = 'http://localhost:3000/'
 /*
@@ -12,73 +13,73 @@ let apiUrl = 'http://localhost:3000/'
 @Injectable()
 
 export class AuthServiceProvider {
-  loggedIn:boolean=false;
-  res:any[];
+  loggedIn: boolean = false;
+  res: any[];
   constructor(public http: HttpClient) {
-    
+
   }
-  getData(type:string,username,password){
-    return new Promise ((resolve,reject) => {
-      this.http.get(apiUrl+type).subscribe(res => {
+  getData(type: string, username, password) {
+    return new Promise((resolve, reject) => {
+      this.http.get(apiUrl + type).subscribe(res => {
         resolve(res);
         for (let i = 0; i < (<any>res).length; i++) {
-          if(res[i].username === username && res[i].password === password){
-            this.loggedIn=true;
+          if (res[i].username === username && res[i].password === password) {
+            this.loggedIn = true;
             break;
-          }else {
-            this.loggedIn=false;
+          } else {
+            this.loggedIn = false;
           }
         }
-        
+
       }),
-      (err) => {
-        reject(err)
-      }
+        (err) => {
+          reject(err)
+        }
     })
   }
-  postData(credentials , type){
-    return new Promise ((resolve,reject) => {
+  postData(credentials, type) {
+    return new Promise((resolve, reject) => {
       let headers = new HttpHeaders();
-      this.http.post(apiUrl+type,credentials,{headers:headers}).subscribe(res => {
+      this.http.post(apiUrl + type, credentials, { headers: headers }).subscribe(res => {
         resolve(res);
-      }),(err) => {
+      }), (err) => {
         reject(err)
       }
     })
   }
 
   //POST CALLS
-  
-  getPost(type:string,){
-    return new Promise ((resolve,reject) => {
-      this.http.get(apiUrl+type).subscribe(res => {
+
+  getPost(type: string, ) {
+    return new Promise((resolve, reject) => {
+      this.http.get(apiUrl + type).subscribe(res => {
         resolve(res)
       }),
-      (err) => {
-        reject(err)
-      }
+        (err) => {
+          reject(err)
+        }
     })
   }
 
-  createPost(data,type){
-    return new Promise ((resolve,reject) => {
+  createPost(data, type) {
+    return new Promise((resolve, reject) => {
       let headers = new HttpHeaders();
-      this.http.post(apiUrl+type,data,{headers:headers}).subscribe(res => {
+      this.http.post(apiUrl + type, data, { headers: headers }).subscribe(res => {
         resolve(res);
-      }),(err) => {
+      }), (err) => {
         reject(err)
       }
     })
 
   }
-  getPostData(type,id){
-    return new Promise ((resolve,reject) => {
-      this.http.get(apiUrl+type+'/'+id).subscribe(res => {
+  getPostData(type, id) {
+    return new Promise((resolve, reject) => {
+      this.http.get(apiUrl + type + '/' + id).subscribe(res => {
         resolve(res)
       }),
-      (err) => {
-        reject(err)
-      }
+        (err) => {
+          reject(err)
+        }
     })
   }
 }

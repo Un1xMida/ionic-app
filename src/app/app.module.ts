@@ -10,32 +10,21 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateService } from '@ngx-translate/core';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { WelcomePage } from '../pages/welcome/welcome';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
-import { ErrorPage } from '../pages/error/error';
-import { CreatePostPage } from '../pages/create-post/create-post';
-import { TruncateTitlesDirective } from '../directives/truncate-titles/truncate-titles'; // directive
+
+import { TruncateTitlesDirective } from '../directives/truncate-titles/truncate-titles';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
-import { DetailsPage } from '../pages/details/details';
+import { AppGLobalService } from '../services/globals';
 
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    WelcomePage,
-    LoginPage,
-    SignupPage,
-    ErrorPage,
-    CreatePostPage,
     TruncateTitlesDirective,
-    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -52,19 +41,13 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    WelcomePage,
-    LoginPage,
-    SignupPage,
-    ErrorPage,
-    CreatePostPage,
-    DetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    AppGLobalService
   ]
 })
 export class AppModule {}

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginPage } from "../login/login";
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
 
 /**
@@ -22,22 +21,19 @@ export class SignupPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
   }
 
 
   signUp(){
     this.auth.postData(this.userData,'users').then((result) => {
       this.responseData = result;
-      console.log(this.responseData);
       localStorage.setItem('userData', JSON.stringify(this.responseData))
-      this.navCtrl.push(LoginPage);
+      this.navCtrl.push('LoginPage');
     }, (err) => {
-      console.log('failed');
     })
   }
 
   logIn(){
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.push('LoginPage');
   }
 }

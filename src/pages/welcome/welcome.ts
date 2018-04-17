@@ -1,21 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { SignupPage } from "../signup/signup";
-import { LoginPage } from "../login/login";
-import { HomePage } from "../home/home";
+
 
 import { TranslateService } from '@ngx-translate/core';
+import { AppGLobalService } from '../../services/globals';
 
-
-
-
-/**
- * Generated class for the WelcomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -23,26 +13,29 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'welcome.html',
 })
 export class WelcomePage {
-  retrive=this.retrive = JSON.parse(localStorage.getItem('state'));
-  constructor(public navCtrl: NavController, public navParams: NavParams,public translate: TranslateService) {
-    translate.use('en')
+  retrive = this.retrive = JSON.parse(localStorage.getItem('state'));
+  constructor(public navCtrl: NavController, public navParams: NavParams, public translate: TranslateService, private globals: AppGLobalService) {
+    translate.use('ar');
   }
-
+  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad WelcomePage');
-    console.log(this.retrive.logged)
+
   }
 
-  signUp(){
-    this.navCtrl.push(SignupPage)
+  signUp() {
+    this.navCtrl.push('SignupPage')
   }
-  logIn(){
+  logIn() {
     if (this.retrive.logged === true) {
-      this.navCtrl.push(HomePage)
+      this.navCtrl.push('HomePage')
     }
-    else if (this.retrive.logged === false){
-      this.navCtrl.push(LoginPage)
+    else if (this.retrive.logged === false) {
+      this.navCtrl.push('LoginPage')
     }
+  }
+
+  changeLanguage(langauge) {
+    this.translate.use(langauge);
   }
 
 }

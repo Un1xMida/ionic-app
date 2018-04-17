@@ -23,11 +23,16 @@ page-home {
     }
     .createPost-btn {
         position: fixed!important;
-        top: 10%;
+        top: 7%;
         left: 35%;
         z-index: 99;
     }
     .items-cont {
         padding-top: 50px;
+    }
+    ion-icon {
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
     }
 }

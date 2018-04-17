@@ -30,7 +30,4 @@ export class DetailsPage {
     this.auth.getPostData('posts',this.postId);
   }
 
-  
-  
-
 }

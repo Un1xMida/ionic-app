@@ -1,7 +1,11 @@
 <ion-content padding id="welcome">
-    <h1>Welcome To Banana</h1>
-    <div>Discover some intersting things</div>
+    <select [(ngModel)]="lang" (ngModelChange)="changeLanguage($event)">
+            <option value="en">English</option>
+            <option value="ar">Arabic</option>
+        </select>
+    <h1>{{ 'title' | translate }}</h1>
+    <div>{{ 'about' | translate }}</div>
 
-    <button ion-button block class="margin-top" (click)="signUp()">Sign Up</button>
+    <button ion-button block class="margin-top" (click)="signUp()">{{ 'signUpBtn' | translate }}</button>
     <button ion-button block color="lightprimary" (click)="logIn()">{{ 'signInBtn' | translate }}</button>
 </ion-content>

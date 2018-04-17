@@ -5,15 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TranslateService } from '@ngx-translate/core';
 
-import { WelcomePage } from '../pages/welcome/welcome';
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = WelcomePage;
+  rootPage:any = 'WelcomePage';
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, translate: TranslateService) {
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('ar');
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
