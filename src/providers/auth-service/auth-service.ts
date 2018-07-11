@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { AppGLobalService } from '../../services/globals';
 
-let apiUrl = 'http://localhost:3000/'
+let apiUrl = 'https://my-json-server.typicode.com/Un1xMida/ionic-app/'
 /*
   Generated class for the AuthServiceProvider provider.
 
